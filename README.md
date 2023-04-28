@@ -27,35 +27,37 @@ Repository for HY-548 Assignment 4. AM: csd4054
 ### Task 2
   * a)
 
-		*text*
+		docker build -t toutou98/greeting-controller:latest .
+
+        docker push toutou98/greeting-controller:latest
 	
+        Άρχικά παίρνει το image python:slim-buster και κάνει τα updates, κατεβάζει το kubectl και
+        το κάνει εγκατάσταση. Έπειτα αντιγράφει στο /app τα 3 αρχεία που χρειάζονται και κάνει
+        εγκατάσταση τα requirements. Τέλος τρέχει τον controller.
+
 	![1](task2/screenshots/1.JPG)
 
-		*text*
+  * b)
+
+		Άρχικά κάνω apply το crd και το deployment:
+        
+        kubectl apply -f greeting-crd.yaml
+
+        kubectl apply -f greeting-controler.yaml
+
+        Μέσα στο deployment έχουμε ένα CLusterRole και βάζω το * στα rules για να
+        είμαι σίγουρος ότι το role Θα έχει access όπου χρειάζεται. Έπειτα έχω ένα
+        ClusterRoleBinding όπου κάνει reference το greeting-cluster-role και το κάνει
+        bind με το service account. Τέλος είναι το deployment με το image που ανέβασα πριν.
+
+        Για να επαληθεύσω ότι λειτουγεί σωστά μπορώ να δω με το:
+        kubectl describe deployments και βλέπω ότι υπάρχουν τα σωστά δεδομένα στα deployments.
+
+        Επίσης μπορώ να δω και τα logs του container που τρέχει το controller.py
 
 	![2](task2/screenshots/2.JPG)
+	![3](task2/screenshots/3.JPG)kubectl 
 
-		*text*
-	
-	![3](task2/screenshots/3.JPG)
-	![4](task2/screenshots/4.JPG)
-
-		*text*
-
-	![5](task2/screenshots/5.JPG)
-	![6](task2/screenshots/6.JPG)
-
-		*text*
-
-	![7](task2/screenshots/7.JPG)
-	![8](task2/screenshots/8.JPG)
-
-		*text*
-
-	![9](task2/screenshots/9.JPG)
-	![10](task2/screenshots/10.JPG)
-
-		*text*
 
 ### Task 3
   * a)
