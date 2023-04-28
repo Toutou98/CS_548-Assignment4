@@ -56,7 +56,8 @@ Repository for HY-548 Assignment 4. AM: csd4054
         Επίσης μπορώ να δω και τα logs του container που τρέχει το controller.py
 
 	![2](task2/screenshots/2.JPG)
-	![3](task2/screenshots/3.JPG)kubectl 
+    
+	![3](task2/screenshots/3.JPG)
 
 
 ### Task 3
